@@ -4,8 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 class BPO extends JFrame implements ActionListener{
     JPanel p3;
+    JLabel nameLabel, idLabel, ageLabel, addressLabel, dobLabel, eduLabel,joiningDateLabel, loeLabel,typeLabel,bankLabel,ifscLabel;
     BPO() {
         setVisible(true);
         setSize(1200,800);
@@ -35,60 +37,137 @@ class BPO extends JFrame implements ActionListener{
 
         p3 = new JPanel();
         p3.setLayout(null);
+        p3.setBackground(Color.cyan);
         add(p3,BorderLayout.CENTER);
     }
 
+    public void employee() {
+        JLabel headLabel = new JLabel("Company Employees...");
+        headLabel.setBounds(350, 10, 600, 75);
+        headLabel.setFont(new Font("Arial", Font.BOLD, 50));
+        p3.add(headLabel);
+        JTextField search_box = new JTextField();
+        search_box.setToolTipText("Search Employee...");
+        search_box.setBounds(75, 100, 600, 45);
+        p3.add(search_box);
+        JButton searchButton = createStyledButton("Search", 700, 100);
+        searchButton.addActionListener(this);
+        JButton clearButton = createStyledButton("clear", 950, 100);
+        clearButton.addActionListener(this);
+        p3.add(clearButton);
+        p3.add(searchButton);
+        revalidate();
+        repaint();
+    }
+
     public void employeeDetails() {
-        p3.setLayout(null);
-        p3.setPreferredSize(new Dimension(900,1100));
+        p3.setPreferredSize(new Dimension(900,800));
         p3.setBackground(Color.CYAN);
         JScrollPane sp = new JScrollPane(p3);
         sp.setBounds(200, 200, 200, 200);
         add(sp);
 
         JLabel name = new JLabel("Employee name : ");
-        name.setBounds(100,50,100,30);
+        name.setBounds(100,200,300,30);
+        name.setFont(new Font("Arial", Font.PLAIN, 20));
         p3.add(name);
+        nameLabel = new JLabel("K. Vigneshwaran");
+        nameLabel.setBounds(450,200,300,30);
+        nameLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+        p3.add(nameLabel);
 
         JLabel emp_id = new JLabel("Employee ID : ");
-        emp_id.setBounds(100,150,100,30);
+        emp_id.setBounds(100,250,300,30);
+        emp_id.setFont(new Font("Arial", Font.PLAIN, 20));
         p3.add(emp_id);
+        idLabel = new JLabel();
+        idLabel.setBounds(450,250,300,30);
+        idLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+        p3.add(idLabel);
 
         JLabel emp_age = new JLabel("Employee age : ");
-        emp_age.setBounds(100,250,100,30);
+        emp_age.setBounds(100,300,300,30);
+        emp_age.setFont(new Font("Arial", Font.PLAIN, 20));
         p3.add(emp_age);
+        ageLabel = new JLabel();
+        ageLabel.setBounds(450,300,300,30);
+        ageLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+        p3.add(ageLabel);
 
         JLabel address = new JLabel("address : ");
-        address.setBounds(100,350,100,30);
+        address.setBounds(100,350,300,30);
+        address.setFont(new Font("Arial", Font.PLAIN, 20));
         p3.add(address);
+        addressLabel = new JLabel();
+        addressLabel.setBounds(450,350,300,30);
+        addressLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+        p3.add(addressLabel);
 
         JLabel dob = new JLabel("Date of Birth : ");
-        dob.setBounds(100,450,100,30);
+        dob.setBounds(100,400,300,30);
+        dob.setFont(new Font("Arial", Font.PLAIN, 20));
         p3.add(dob);
+        dobLabel = new JLabel();
+        dobLabel.setBounds(450,400,300,30);
+        dobLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+        p3.add(dobLabel);
 
         JLabel edu_qua = new JLabel("Education : ");
-        edu_qua.setBounds(100,550,100,30);
+        edu_qua.setBounds(100,450,300,30);
+        edu_qua.setFont(new Font("Arial", Font.PLAIN, 20));
         p3.add(edu_qua);
+        eduLabel = new JLabel();
+        eduLabel.setBounds(450,450,300,30);
+        eduLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+        p3.add(eduLabel);
 
         JLabel join_date = new JLabel("Joining Date : ");
-        join_date.setBounds(100,650,100,30);
+        join_date.setBounds(100,500,300,30);
+        join_date.setFont(new Font("Arial", Font.PLAIN, 20));
         p3.add(join_date);
+        joiningDateLabel = new JLabel();
+        joiningDateLabel.setBounds(450,500,300,30);
+        joiningDateLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+        p3.add(joiningDateLabel);
 
         JLabel loe = new JLabel("Length of Employement : ");
-        loe.setBounds(100,750,800,30);
+        loe.setBounds(100,550,800,30);
+        loe.setFont(new Font("Arial", Font.PLAIN, 20));
         p3.add(loe);
+        loeLabel = new JLabel();
+        loeLabel.setBounds(450,550,300,30);
+        loeLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+        p3.add(loeLabel);
 
         JLabel job_type = new JLabel("Job type : ");
-        job_type.setBounds(100,850,800,30);
+        job_type.setBounds(100,600,800,30);
+        job_type.setFont(new Font("Arial", Font.PLAIN, 20));
         p3.add(job_type);
+        typeLabel = new JLabel();
+        typeLabel.setBounds(450,600,300,30);
+        typeLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+        p3.add(typeLabel);
 
         JLabel bank_name = new JLabel("Bank name : ");
-        bank_name.setBounds(100,950,800,30);
+        bank_name.setBounds(100,650,300,30);
+        bank_name.setFont(new Font("Arial", Font.PLAIN, 20));
         p3.add(bank_name);
+        bankLabel = new JLabel();
+        bankLabel.setBounds(450,650,300,30);
+        bankLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+        p3.add(bankLabel);
 
         JLabel ifsc = new JLabel("IFSC code : ");
-        ifsc.setBounds(100,1050,800,30);
+        ifsc.setBounds(100,700,300,30);
+        ifsc.setFont(new Font("Arial", Font.PLAIN, 20));
         p3.add(ifsc);
+        ifscLabel = new JLabel();
+        ifscLabel.setBounds(450,700,300,30);
+        ifscLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+        p3.add(ifscLabel);
+
+        revalidate();
+        repaint();
     }
 
     private JButton createStyledButton(String text, int x, int y) {
@@ -108,12 +187,24 @@ class BPO extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent var) {
         String cmd = var.getActionCommand();
         if (cmd.equals("Employee")) {
+            employee();
+            revalidate();
+            repaint();
+        }
+        else if (cmd.equals("Search")) {
             employeeDetails();
+            revalidate();
+            repaint();
+        }
+        else if (cmd.equals("clear")) {
+            p3.removeAll();
+            employee();
             revalidate();
             repaint();
         }
     }
 }
+
 public class ProjectManagementSystem {
     public static void main(String[] args) {
         new BPO();
