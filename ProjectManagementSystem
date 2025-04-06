@@ -1,5 +1,6 @@
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,7 +8,8 @@ import java.awt.event.ActionListener;
 
 class BPO extends JFrame implements ActionListener{
     JPanel p3;
-    JLabel nameLabel, idLabel, ageLabel, addressLabel, dobLabel, eduLabel,joiningDateLabel, loeLabel,typeLabel,bankLabel,ifscLabel;
+    JLabel nameLabel, idLabel, ageLabel, addressLabel, dobLabel, eduLabel;
+    JLabel joiningDateLabel, loeLabel,typeLabel,bankLabel,ifscLabel,projectCountLabel;
     BPO() {
         setVisible(true);
         setSize(1200,800);
@@ -61,7 +63,7 @@ class BPO extends JFrame implements ActionListener{
     }
 
     public void employeeDetails() {
-        p3.setPreferredSize(new Dimension(900,800));
+        p3.setPreferredSize(new Dimension(900,1200));
         p3.setBackground(Color.CYAN);
         JScrollPane sp = new JScrollPane(p3);
         sp.setBounds(200, 200, 200, 200);
@@ -165,6 +167,29 @@ class BPO extends JFrame implements ActionListener{
         ifscLabel.setBounds(450,700,300,30);
         ifscLabel.setFont(new Font("Arial", Font.PLAIN, 20));
         p3.add(ifscLabel);
+
+        JLabel project = new JLabel("Project count : ");
+        project.setBounds(100,750,300,30);
+        project.setFont(new Font("Arial", Font.PLAIN, 20));
+        p3.add(project);
+
+        JLabel project_count = new JLabel("total count : ");
+        project_count.setBounds(100,925,300,30);
+        project_count.setFont(new Font("Arial", Font.PLAIN, 20));
+        p3.add(project_count);
+        projectCountLabel = new JLabel();
+        projectCountLabel.setBounds(450,925,300,30);
+        projectCountLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+        p3.add(projectCountLabel);
+
+        String[][] projectData = {};
+        String[] columnName = {"Project id", "count"};
+        DefaultTableModel model = new DefaultTableModel(projectData, columnName);
+        JTable projectTable = new JTable(model);
+        projectTable.setEnabled(false);
+        JScrollPane scrollPane = new JScrollPane(projectTable);
+        scrollPane.setBounds(150, 800, 600, 100); 
+        p3.add(scrollPane);
 
         revalidate();
         repaint();
