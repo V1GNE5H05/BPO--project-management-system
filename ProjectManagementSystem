@@ -1,0 +1,137 @@
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+class BPO extends JFrame implements ActionListener{
+    JPanel p3;
+    BPO() {
+        setVisible(true);
+        setSize(1200,800);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        JPanel p1 = new JPanel();
+        p1.setPreferredSize(new Dimension(1200, 100));
+        p1.setBackground(new Color(100,100,100));
+        add(p1,BorderLayout.NORTH);
+
+        JPanel p2 =  new JPanel();
+        p2.setLayout(new GridLayout(10, 0));
+        p2.setPreferredSize(new Dimension(300, 800));
+        p2.setBackground(Color.LIGHT_GRAY);
+        JButton profileButton = createStyledButton("profile", 50, 50);
+        p2.add(profileButton);
+        JButton invoiceButton = createStyledButton("Invoice", 50, 50);
+        p2.add(invoiceButton);
+        JButton employeeButton = createStyledButton("Employee", 50, 50);
+        employeeButton.addActionListener(this);
+        p2.add(employeeButton);
+        JButton vendorButton = createStyledButton("Vendor", 50, 50);
+        p2.add(vendorButton);
+        JButton projecButton = createStyledButton("Projects", 50, 50);
+        p2.add(projecButton);
+        add(p2,BorderLayout.WEST);
+        p3 = new JPanel();
+        add(p3,BorderLayout.CENTER);
+    }
+    private JButton createStyledButton(String text, int x, int y) {
+        JButton button = new JButton(text);
+        button.setFont(new Font("Arial", Font.PLAIN, 20));
+        button.setBounds(x, y, 200, 40);
+        button.setBackground(new Color(135, 206, 235));
+        button.setForeground(Color.WHITE); 
+        button.setFocusPainted(false);
+        button.setBorder(BorderFactory.createLineBorder(new Color(70, 130, 180), 2, true)); 
+        button.setCursor(new Cursor(Cursor.HAND_CURSOR)); 
+        button.setToolTipText("Click to " + text); 
+        return button;
+    }
+    public void employee() {
+        p3  =  new JPanel();
+        JPanel panel = new JPanel();
+        panel = new JPanel();
+        panel.setLayout(null);
+        panel.setBackground(Color.cyan);
+        JTextField search_box = new JTextField();
+        search_box.setToolTipText("Search Employee...");
+        search_box.setBounds(100, 100, 600, 35);
+        panel.add(search_box);
+        JButton searchButton = createStyledButton("Search", 800, 95);
+        searchButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                employeeDetails();
+            }
+        });
+        panel.add(searchButton);
+        
+    }
+    public void employeeDetails () {
+        JPanel p3 =  new JPanel();
+        p3.setLayout(null);
+        p3.setPreferredSize(new Dimension(900,1100));
+        p3.setBackground(Color.CYAN);
+        JScrollPane sp = new JScrollPane(p3);
+        sp.setBounds(200, 200, 200, 200);
+        p3.add(sp);
+
+        JLabel name = new JLabel("Employee name : ");
+        name.setBounds(100,50,100,30);
+        p3.add(name);
+
+        JLabel emp_id = new JLabel("Employee ID : ");
+        emp_id.setBounds(100,150,100,30);
+        p3.add(emp_id);
+
+        JLabel emp_age = new JLabel("Employee age : ");
+        emp_age.setBounds(100,250,100,30);
+        p3.add(emp_age);
+
+        JLabel address = new JLabel("address : ");
+        address.setBounds(100,350,100,30);
+        p3.add(address);
+
+        JLabel dob = new JLabel("Date of Birth : ");
+        dob.setBounds(100,450,100,30);
+        p3.add(dob);
+
+        JLabel edu_qua = new JLabel("Education : ");
+        edu_qua.setBounds(100,550,100,30);
+        p3.add(edu_qua);
+
+        JLabel join_date = new JLabel("Joining Date : ");
+        join_date.setBounds(100,650,100,30);
+        p3.add(join_date);
+
+        JLabel loe = new JLabel("Length of Employement : ");
+        loe.setBounds(100,750,800,30);
+        p3.add(loe);
+
+        JLabel job_type = new JLabel("Job type : ");
+        job_type.setBounds(100,850,800,30);
+        p3.add(job_type);
+
+        JLabel bank_name = new JLabel("Bank name : ");
+        bank_name.setBounds(100,950,800,30);
+        p3.add(bank_name);
+
+        JLabel ifsc = new JLabel("IFSC code : ");
+        ifsc.setBounds(100,1050,800,30);
+        p3.add(ifsc);
+
+    }
+    @Override
+    public void actionPerformed(ActionEvent var) {
+        String cmd = var.getActionCommand();
+        if (cmd.equals("Employee")) {
+            employee();
+            revalidate();
+            repaint();
+        }
+    }
+}
+public class ProjectManagementSystem {
+    public static void main(String[] args) {
+        new BPO();
+    }
+}
